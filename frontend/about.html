@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>About - PersonalSafety</title>
+  <link rel="stylesheet" href="css/style.css">
+  <script defer src="js/main.js"></script>
+</head>
+<body>
+
+<nav class="navbar">
+  <div class="logo">🛡️ PersonalSafety</div>
+
+  <ul class="nav-links">
+    <li onclick="goHome()">Home</li>
+    <li class="nav-active" onclick="goToAbout()">About</li>
+    <li><button class="login-btn" onclick="goToLogin()">Login</button></li>
+    <li><button class="primary-btn" onclick="goToLogin()">Get Started</button></li>
+  </ul>
+</nav>
+
+<section class="hero about-hero">
+  <div class="hero-left">
+    <span class="badge">ABOUT PERSONALSAFETY</span>
+    <h1>Built to make safety support faster, clearer, and closer.</h1>
+    <p>
+      PersonalSafety combines emergency access, trusted-contact alerts, location sharing,
+      and live safety zones so users can move with more confidence every day.
+    </p>
+    <button class="primary-btn" onclick="goToLogin()">Open Your Safety Dashboard</button>
+  </div>
+
+  <div class="about-panel">
+    <div class="about-stat">
+      <strong>Real-time zones</strong>
+      <p>Map-based safe, moderate, and danger area awareness.</p>
+    </div>
+    <div class="about-stat">
+      <strong>Trusted sharing</strong>
+      <p>Quickly share your live position with family and friends.</p>
+    </div>
+    <div class="about-stat">
+      <strong>Emergency response</strong>
+      <p>Trigger SOS and contact your emergency circle in seconds.</p>
+    </div>
+  </div>
+</section>
+
+<section class="features">
+  <p class="section-tag">WHY WE BUILT IT</p>
+  <h2>Safety tools should be simple under pressure</h2>
+  <p class="section-desc">
+    Every screen is designed to help users take action quickly without losing context.
+  </p>
+
+  <div class="cards">
+    <div class="card">
+      <h3>Fast decisions</h3>
+      <p>Color-coded zones and safety scores reduce hesitation in unfamiliar places.</p>
+    </div>
+    <div class="card">
+      <h3>Connected support</h3>
+      <p>Live location sharing keeps trusted people informed while you stay in control.</p>
+    </div>
+    <div class="card">
+      <h3>Preserved records</h3>
+      <p>Incident reports and history give users a clearer timeline when needed.</p>
+    </div>
+  </div>
+</section>
+
+<section class="cta">
+  <h2>Want to explore the app experience?</h2>
+  <p>Sign in to view your dashboard, safety map, SOS tools, and activity history.</p>
+  <div class="cta-buttons">
+    <button class="white-btn" onclick="goToLogin()">Login</button>
+    <button class="outline-btn" onclick="goHome()">Back Home</button>
+  </div>
+</section>
+
+<footer class="footer">
+  <p class="copyright">© 2026 PersonalSafety. All rights reserved.</p>
+</footer>
+
+</body>
+</html>

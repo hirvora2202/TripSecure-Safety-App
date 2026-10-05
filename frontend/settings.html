@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Settings - PersonalSafety</title>
+  <link rel="stylesheet" href="css/style.css">
+  <script defer src="js/main.js"></script>
+</head>
+<body class="settings-body">
+
+<div class="contacts-header app-header">
+  <div class="app-header-left">
+    <span class="app-header-action" onclick="goBack()">&larr;</span>
+    <div class="app-brand"><span class="app-brand-mark" aria-hidden="true"></span><span>PersonalSafety</span></div>
+  </div>
+  <h2 class="app-header-title">Settings</h2>
+  <span class="app-header-spacer"></span>
+</div>
+
+<div class="settings-container">
+  <div class="settings-profile-card clickable-item" onclick="goToProfile()">
+    <div class="settings-avatar" id="settingsAvatar">U</div>
+    <div>
+      <h3 id="settingsUserName">User</h3>
+      <p id="settingsUserEmail">your@email.com</p>
+    </div>
+  </div>
+
+  <div class="settings-section">
+    <h3>Preferences</h3>
+
+    <div class="settings-row">
+      <div>
+        <strong>Location Access Reminder</strong>
+        <p>Remind me if location services are disabled</p>
+      </div>
+      <label class="switch">
+        <input type="checkbox" id="settingLocationReminder">
+        <span class="slider"></span>
+      </label>
+    </div>
+
+    <div class="settings-row">
+      <div>
+        <strong>Safety Alerts</strong>
+        <p>Show warnings when entering moderate or danger zones</p>
+      </div>
+      <label class="switch">
+        <input type="checkbox" id="settingSafetyAlerts">
+        <span class="slider"></span>
+      </label>
+    </div>
+
+    <div class="settings-row">
+      <div>
+        <strong>Live Sharing Shortcut</strong>
+        <p>Keep quick share action enabled on the map</p>
+      </div>
+      <label class="switch">
+        <input type="checkbox" id="settingLiveSharing">
+        <span class="slider"></span>
+      </label>
+    </div>
+
+    <div class="settings-row">
+      <div>
+        <strong>Dark Mode</strong>
+        <p>Switch the app between light and dark themes</p>
+      </div>
+      <label class="switch">
+        <input type="checkbox" id="settingDarkMode">
+        <span class="slider"></span>
+      </label>
+    </div>
+
+    <div class="settings-select-row">
+      <div>
+        <strong data-i18n="settings.languageLabel">App Language</strong>
+        <p data-i18n="settings.languageCopy">Choose the language used in the main safety screens</p>
+      </div>
+      <select class="settings-select" id="settingLanguage">
+        <option value="en">English</option>
+        <option value="hi">Hindi</option>
+      </select>
+    </div>
+  </div>
+
+  <div class="settings-section">
+    <h3>Safety Tools</h3>
+    <button class="secondary-btn" onclick="goToProfile()">Open Profile</button>
+    <button class="secondary-btn" onclick="goToTracking()">Open Safety Map</button>
+    <button class="secondary-btn" onclick="goToTransport()">Open Transportation</button>
+    <button class="secondary-btn" onclick="goToFakeCall()" data-i18n="settings.fakeCall">Open Fake Call</button>
+    <button class="secondary-btn" onclick="goToContacts()">Manage Emergency Contacts</button>
+    <button class="secondary-btn" onclick="goToReport()">Create Incident Report</button>
+  </div>
+
+  <div class="settings-section">
+    <h3>Account</h3>
+    <button class="login-main-btn" onclick="logout()">Logout</button>
+  </div>
+</div>
+
+<div class="bottom-nav">
+  <div onclick="goToDashboard()">🏠<br>Home</div>
+  <div onclick="goToTracking()">🗺️<br>Map</div>
+  <div onclick="goToSOS()">⚠️<br>Alert</div>
+  <div onclick="goToHistory()">📄<br>Reports</div>
+  <div class="active">⚙️<br>Settings</div>
+</div>
+
+</body>
+</html>

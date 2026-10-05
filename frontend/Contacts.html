@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Contacts - PersonalSafety</title>
+  <link rel="stylesheet" href="css/style.css">
+  <script defer src="js/main.js"></script>
+</head>
+
+<body>
+
+<!-- ===== HEADER ===== -->
+<div class="contacts-header app-header">
+  <div class="app-header-left">
+    <span class="app-header-action" onclick="goBack()">&larr;</span>
+    <div class="app-brand"><span class="app-brand-mark" aria-hidden="true"></span><span>PersonalSafety</span></div>
+  </div>
+  <h2 class="app-header-title">Emergency Contacts</h2>
+  <span class="app-header-action">...</span>
+</div>
+
+<!-- ===== CONTENT ===== -->
+<div class="contacts-container">
+
+  <!-- ADD BUTTON -->
+  <button class="add-contact-btn" onclick="addContactPrompt()">
+    ➕ Add New Contact
+  </button>
+
+  <p class="section-label">SAVED CONTACTS</p>
+
+  <!-- CONTACT LIST -->
+  <div id="contactsList"></div>
+
+  <!-- NOTE -->
+  <div class="contacts-note">
+    Contacts added here will be notified immediately when you trigger an emergency alert.
+  </div>
+
+</div>
+
+<!-- ===== BOTTOM NAV (SAME AS DASHBOARD) ===== -->
+<div class="bottom-nav">
+  <div onclick="goToDashboard()">🏠<br>Home</div>
+  <div onclick="goToTracking()">🗺️<br>Map</div>
+  <div onclick="goToSOS()">⚠️<br>Alert</div>
+  <div onclick="goToHistory()">📄<br>Reports</div>
+  <div onclick="goToSettings()">⚙️<br>Settings</div>
+</div>
+
+</body>
+</html>

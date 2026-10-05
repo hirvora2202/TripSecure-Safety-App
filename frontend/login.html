@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Login - PersonalSafety</title>
+  <link rel="stylesheet" href="css/style.css">
+  <script defer src="js/main.js"></script>
+</head>
+
+<body class="login-body">
+
+<!-- ===== LOGIN CARD ===== -->
+<div class="login-wrapper">
+  <div class="auth-brand"><span class="app-brand-mark" aria-hidden="true"></span><span>PersonalSafety</span></div>
+
+  <div class="login-card">
+
+    <!-- HEADER -->
+    <div class="login-top">
+      <span class="back-btn" onclick="goBack()">←</span>
+      <h2>Welcome Back</h2>
+    </div>
+
+    <!-- BANNER -->
+    <div class="login-banner">
+      <div class="logo-circle">🛡️</div>
+      <p>PERSONAL SAFETY</p>
+    </div>
+
+    <!-- TITLE -->
+    <h3>Access Your Account</h3>
+    <p class="sub-text">
+      Enter your credentials to continue to your dashboard
+    </p>
+
+    <!-- EMAIL -->
+    <label>Email Address or Username</label>
+    <div class="input-box">
+      <span>📧</span>
+      <input type="text" id="email" placeholder="name@company.com or johndoe" autocomplete="username">
+    </div>
+
+    <!-- PASSWORD -->
+    <div class="password-row">
+      <label>Password</label>
+      <span class="forgot">Forgot Password?</span>
+    </div>
+
+    <div class="input-box">
+      <span>🔒</span>
+      <input type="password" id="password" placeholder="••••••••" minlength="8" autocomplete="current-password">
+      <button type="button" class="password-toggle-btn" data-toggle-password="password">Show</button>
+    </div>
+
+    <!-- LOGIN BUTTON -->
+    <button class="login-main-btn" onclick="loginUser()">
+      Login to PersonalSafety →
+    </button>
+
+    <!-- SIGNUP -->
+    <p class="signup-text">
+      New to PersonalSafety?
+      <span onclick="goToSignup()">Create an account</span>
+    </p>
+
+  </div>
+
+  <!-- FOOTER -->
+  <div class="login-footer">
+    <p>© 2026 PersonalSafety Inc. All rights reserved.</p>
+    <div class="footer-links">
+      <span>Privacy Policy</span>
+      <span>Terms of Service</span>
+      <span>Help Center</span>
+    </div>
+  </div>
+
+</div>
+
+</body>
+</html>

@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SOS - PersonalSafety</title>
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
+  <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+  <script defer src="js/main.js"></script>
+</head>
+<body class="sos-page-body">
+
+<div class="sos-header app-header">
+  <div class="app-header-left">
+    <span class="app-header-action" onclick="goBack()">&larr;</span>
+    <div class="app-brand"><span class="app-brand-mark" aria-hidden="true"></span><span>PersonalSafety</span></div>
+  </div>
+  <h2 class="app-header-title">PERSONAL SAFETY</h2>
+  <span class="app-header-spacer"></span>
+</div>
+
+<div class="sos-container">
+  <div class="sos-hero-card">
+    <p class="mini-label">EMERGENCY SUPPORT</p>
+    <h1>Emergency SOS</h1>
+    <p class="sos-sub">Press and hold the button for 2 seconds to alert all saved emergency contacts with your live location.</p>
+  </div>
+
+  <div class="sos-button-wrapper">
+    <div class="sos-glow"></div>
+
+    <button class="sos-main-btn"
+      onmousedown="startSOS()"
+      onmouseup="cancelSOS()"
+      ontouchstart="startSOS()"
+      ontouchend="cancelSOS()">
+      ⚠️<br> SEND SOS
+    </button>
+  </div>
+
+  <div class="sos-status-card">
+    <h3>Alert Status</h3>
+    <p id="sosStatus">Ready to send to your emergency circle.</p>
+    <div id="sosResults" class="sos-results">
+      <p class="empty-state">SOS delivery updates will appear here.</p>
+    </div>
+  </div>
+
+  <div class="location-card">
+    <div class="location-header">
+      <span>📍 Current Location</span>
+      <span class="live">LIVE GPS</span>
+    </div>
+
+    <div id="map" class="sos-map"></div>
+
+    <p id="locationName">Fetching location...</p>
+    <small>Accuracy: within few meters</small>
+  </div>
+
+  <div class="contacts-section">
+    <div class="contacts-section-header">
+      <h3>Emergency Contacts</h3>
+      <span onclick="goToContacts()">Edit List</span>
+    </div>
+
+    <div id="contactsList"></div>
+  </div>
+</div>
+
+<div class="bottom-nav">
+  <div onclick="goToDashboard()">🏠<br>Home</div>
+  <div onclick="goToTracking()">🗺️<br>Map</div>
+  <div class="active">⚠️<br>Alert</div>
+  <div onclick="goToHistory()">📄<br>Reports</div>
+  <div onclick="goToSettings()">⚙️<br>Settings</div>
+</div>
+
+</body>
+</html>

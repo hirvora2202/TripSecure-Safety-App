@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Fake Call - PersonalSafety</title>
+  <link rel="stylesheet" href="css/style.css">
+  <script defer src="js/main.js"></script>
+</head>
+<body class="fake-call-body">
+
+<div class="contacts-header app-header">
+  <div class="app-header-left">
+    <span class="app-header-action" onclick="goBack()">&larr;</span>
+    <div class="app-brand"><span class="app-brand-mark" aria-hidden="true"></span><span>PersonalSafety</span></div>
+  </div>
+  <h2 class="app-header-title" data-i18n="fakeCall.title">Fake Call</h2>
+  <span class="app-header-spacer"></span>
+</div>
+
+<div class="fake-call-container">
+  <div class="fake-call-card">
+    <p class="section-tag" data-i18n="fakeCall.badge">QUICK COVER</p>
+    <h2 data-i18n="fakeCall.heading">Create a realistic incoming call</h2>
+    <p class="section-desc-left" data-i18n="fakeCall.copy">Use this screen to trigger a believable fake call when you need a quick reason to step away.</p>
+
+    <label for="fakeCallerName" data-i18n="fakeCall.callerLabel">Caller Name</label>
+    <input class="input" id="fakeCallerName" type="text" data-i18n-placeholder="fakeCall.callerPlaceholder" placeholder="Who should call you?">
+
+    <label for="fakeCallDelay" data-i18n="fakeCall.delayLabel">Delay</label>
+    <select class="input" id="fakeCallDelay">
+      <option value="0" data-i18n="fakeCall.delayNow">Call now</option>
+      <option value="10" data-i18n="fakeCall.delay10">In 10 seconds</option>
+      <option value="30" data-i18n="fakeCall.delay30">In 30 seconds</option>
+    </select>
+
+    <button class="primary-btn" id="startFakeCallBtn" onclick="startFakeCall()" data-i18n="fakeCall.start">Start Fake Call</button>
+    <p class="fake-call-status" id="fakeCallStatus" data-i18n="fakeCall.ready">Ready when you are.</p>
+  </div>
+
+  <div class="incoming-call-screen" id="incomingCallScreen">
+    <div class="incoming-call-top">
+      <p data-i18n="fakeCall.incoming">Incoming call</p>
+      <span id="fakeCallClock">00:00</span>
+    </div>
+
+    <div class="incoming-call-body">
+      <div class="incoming-avatar" id="incomingCallerInitial">S</div>
+      <h2 id="incomingCallerName">Safe Circle</h2>
+      <p data-i18n="fakeCall.phoneLabel">Mobile</p>
+    </div>
+
+    <div class="incoming-call-actions">
+      <button class="call-action decline-btn" onclick="endFakeCall()" data-i18n="fakeCall.decline">Decline</button>
+      <button class="call-action answer-btn" onclick="answerFakeCall()" data-i18n="fakeCall.answer">Answer</button>
+    </div>
+  </div>
+</div>
+
+<div class="bottom-nav">
+  <div onclick="goToDashboard()">🏠<br>Home</div>
+  <div onclick="goToTracking()">🗺️<br>Map</div>
+  <div onclick="goToSOS()">⚠️<br>Alert</div>
+  <div onclick="goToHistory()">📄<br>Reports</div>
+  <div onclick="goToSettings()">⚙️<br>Settings</div>
+</div>
+
+</body>
+</html>

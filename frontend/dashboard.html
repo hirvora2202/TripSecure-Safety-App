@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dashboard - PersonalSafety</title>
+  <link rel="stylesheet" href="css/style.css">
+  <script defer src="js/main.js"></script>
+</head>
+<body class="dashboard-body">
+
+<div class="dash-header">
+  <div class="dash-left">
+    <div class="logo-circle-small">🛡️</div>
+    <div>
+      <h3>PersonalSafety</h3>
+      <p class="header-subtitle">Stay aware, connected, and protected</p>
+    </div>
+  </div>
+
+  <div class="dash-right">
+    <button class="ghost-icon-btn" onclick="logout()">Logout</button>
+  </div>
+</div>
+
+<div class="dashboard">
+  <section class="dashboard-hero">
+    <div>
+      <p class="date" id="currentDate"></p>
+      <h1 id="welcomeUser">Welcome back</h1>
+      <p class="hero-copy">Your safety overview is ready with quick actions, live risk indicators, and emergency tools.</p>
+    </div>
+
+    <div class="hero-safety-card">
+      <p class="mini-label">TODAY'S SAFETY INDEX</p>
+      <h2 id="dashboardSafetyScore">--/100</h2>
+      <p id="dashboardSafetyLabel">Waiting for live location</p>
+    </div>
+  </section>
+
+  <div class="sos-card">
+    <p class="tag">EMERGENCY SERVICE</p>
+    <h2>Send SOS Alert</h2>
+    <p>Notify emergency contacts and authorities with your live location.</p>
+    <button class="sos-btn" onclick="activateSOSFromDashboard()">📡 Activate SOS</button>
+  </div>
+
+  <section class="stats-strip">
+    <div class="stat-chip clickable-chip" onclick="openZoneDetails('safe')">
+      <span>🗺️</span>
+      <div>
+        <strong id="safeZoneCount">0</strong>
+        <p>Safe zones nearby</p>
+      </div>
+    </div>
+
+    <div class="stat-chip clickable-chip" onclick="openZoneDetails('moderate')">
+      <span>🟠</span>
+      <div>
+        <strong id="moderateZoneCount">0</strong>
+        <p>Moderate zones nearby</p>
+      </div>
+    </div>
+
+    <div class="stat-chip clickable-chip" onclick="openZoneDetails('danger')">
+      <span>🔴</span>
+      <div>
+        <strong id="dangerZoneCount">0</strong>
+        <p>High alert zones</p>
+      </div>
+    </div>
+  </section>
+
+  <h3 class="section-title">Quick Actions</h3>
+
+  <div class="quick-grid">
+    <div class="quick-card quick-card-highlight" onclick="goToTracking()">
+      <div class="quick-card-top">
+        <span class="quick-icon">📍</span>
+        <span class="pill-badge">Live map</span>
+      </div>
+      <h4>Safety Zones</h4>
+      <p>View safe areas</p>
+    </div>
+
+    <div class="quick-card" onclick="openLiveShareFromDashboard()">
+      <div class="quick-card-top">
+        <span class="quick-icon">📡</span>
+        <span class="pill-badge">Trusted circle</span>
+      </div>
+      <h4>Share Live</h4>
+      <p>Trusted circles</p>
+    </div>
+
+    <div class="quick-card" onclick="goToContacts()">
+      <div class="quick-card-top">
+        <span class="quick-icon">👥</span>
+        <span class="pill-badge">People</span>
+      </div>
+      <h4>Contacts</h4>
+      <p>Manage circle</p>
+    </div>
+
+    <div class="quick-card" onclick="goToReport()">
+      <div class="quick-card-top">
+        <span class="quick-icon">⚠️</span>
+        <span class="pill-badge">Incident log</span>
+      </div>
+      <h4>Report</h4>
+      <p>Incident log</p>
+    </div>
+
+    <div class="quick-card" onclick="goToFakeCall()">
+      <div class="quick-card-top">
+        <span class="quick-icon">📞</span>
+        <span class="pill-badge">Exit tool</span>
+      </div>
+      <h4>Fake Call</h4>
+      <p>Quick cover screen</p>
+    </div>
+
+    <div class="quick-card" onclick="goToTransport()">
+      <div class="quick-card-top">
+        <span class="quick-icon">🚕</span>
+        <span class="pill-badge">Travel</span>
+      </div>
+      <h4>Transportation</h4>
+      <p>Cab and transit help</p>
+    </div>
+  </div>
+
+  <section class="zone-preview-card" onclick="goToTracking()">
+    <div class="recent-header">
+      <h3>Safety Zone Snapshot</h3>
+      <span>Open map</span>
+    </div>
+    <p class="section-desc-left">Tap to view live zone colors, area labels, and detailed map scoring.</p>
+    <div id="dashboardZonePreview" class="zone-preview-grid">
+      <div class="zone-preview-item zone-safe">Safe areas loading</div>
+      <div class="zone-preview-item zone-moderate">Moderate areas loading</div>
+      <div class="zone-preview-item zone-danger">Alert areas loading</div>
+    </div>
+  </section>
+
+  <div class="recent-header">
+    <h3>Recent Activity</h3>
+    <span class="inline-action" onclick="goToHistory()">See all</span>
+  </div>
+
+  <div class="activity">
+    <div class="activity-item clickable-item" onclick="openZoneDetails('safe')">
+      <div class="icon-box">🗺️</div>
+      <div>
+        <h4>Safety Zone Entry</h4>
+        <p>You entered a safe zone</p>
+      </div>
+      <span>10m ago</span>
+    </div>
+
+    <div class="activity-item clickable-item" onclick="openLiveShareFromDashboard()">
+      <div class="icon-box">📍</div>
+      <div>
+        <h4>Location Update</h4>
+        <p>Shared your location</p>
+      </div>
+      <span>1h ago</span>
+    </div>
+  </div>
+
+  <div class="guidelines-card">
+    <h3>📘 Safety Guidelines</h3>
+
+    <div class="guide-item">
+      <h4>🚨 Emergency</h4>
+      <p>Stay calm, use SOS immediately, and move to a safe public area.</p>
+    </div>
+
+    <div class="guide-item">
+      <h4>📍 Travel Safety</h4>
+      <p>Share your location, avoid isolated areas, verify cab details.</p>
+    </div>
+
+    <div class="guide-item">
+      <h4>👥 Personal Safety</h4>
+      <p>Keep contacts updated, stay alert, and trust your instincts.</p>
+    </div>
+
+    <div class="guide-item">
+      <h4>📱 App Usage</h4>
+      <p>Enable location, use SOS wisely, and update emergency contacts.</p>
+    </div>
+  </div>
+</div>
+
+<div class="bottom-nav">
+  <div class="active">🏠<br>Home</div>
+  <div onclick="goToTracking()">🗺️<br>Map</div>
+  <div onclick="goToSOS()">⚠️<br>Alert</div>
+  <div onclick="goToHistory()">📄<br>Reports</div>
+  <div onclick="goToSettings()">⚙️<br>Settings</div>
+</div>
+
+</body>
+</html>

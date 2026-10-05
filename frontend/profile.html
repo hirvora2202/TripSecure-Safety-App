@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Profile - PersonalSafety</title>
+  <link rel="stylesheet" href="css/style.css">
+  <script defer src="js/main.js"></script>
+</head>
+<body class="settings-body profile-body">
+
+<div class="contacts-header app-header">
+  <div class="app-header-left">
+    <span class="app-header-action" onclick="goBack()">&larr;</span>
+    <div class="app-brand"><span class="app-brand-mark" aria-hidden="true"></span><span>PersonalSafety</span></div>
+  </div>
+  <h2 class="app-header-title">Profile</h2>
+  <span class="app-header-spacer"></span>
+</div>
+
+<div class="settings-container">
+  <div class="profile-hero-card">
+    <div class="settings-avatar profile-avatar" id="profileAvatar">U</div>
+    <h2 id="profileUserName">User</h2>
+    <p id="profileTagline">Your PersonalSafety account</p>
+  </div>
+
+  <div class="settings-section">
+    <h3>Account Details</h3>
+    <div class="profile-field">
+      <span>Full Name</span>
+      <strong id="profileFullName">User</strong>
+    </div>
+    <div class="profile-field">
+      <span>Email</span>
+      <strong id="profileEmail">No email found</strong>
+    </div>
+    <div class="profile-field">
+      <span>Phone</span>
+      <strong id="profilePhone">No phone added</strong>
+    </div>
+  </div>
+
+  <div class="settings-section">
+    <h3>Edit Profile</h3>
+    <label>Full Name</label>
+    <div class="input-box profile-input-box">
+      <span>👤</span>
+      <input type="text" id="editProfileName" placeholder="Enter your full name">
+    </div>
+
+    <label>Phone Number</label>
+    <div class="input-box profile-input-box">
+      <span>📞</span>
+      <input type="text" id="editProfilePhone" placeholder="Enter your phone number">
+    </div>
+
+    <button class="login-main-btn" onclick="saveProfile()">Save Changes</button>
+  </div>
+
+  <div class="settings-section">
+    <h3>Quick Access</h3>
+    <button class="secondary-btn" onclick="goToSettings()">Open Settings</button>
+    <button class="secondary-btn" onclick="goToContacts()">Emergency Contacts</button>
+    <button class="secondary-btn" onclick="goToTracking()">Safety Map</button>
+  </div>
+</div>
+
+<div class="bottom-nav">
+  <div onclick="goToDashboard()">🏠<br>Home</div>
+  <div onclick="goToTracking()">🗺️<br>Map</div>
+  <div onclick="goToSOS()">⚠️<br>Alert</div>
+  <div onclick="goToHistory()">📄<br>Reports</div>
+  <div onclick="goToSettings()">⚙️<br>Settings</div>
+</div>
+
+</body>
+</html>

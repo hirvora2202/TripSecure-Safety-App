@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Safety Zones Map</title>
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
+  <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+  <script defer src="js/main.js"></script>
+</head>
+<body class="map-body">
+
+<div class="map-header app-header">
+  <div class="app-header-left">
+    <span class="app-header-action" onclick="goBack()">&larr;</span>
+    <div class="app-brand"><span class="app-brand-mark" aria-hidden="true"></span><span>PersonalSafety</span></div>
+  </div>
+  <div class="map-title-group app-header-title-wrap">
+    <h2 class="app-header-title">Safety Zones</h2>
+    <p>Live area awareness map</p>
+  </div>
+  <span class="app-header-action" onclick="locateMe()">GPS</span>
+</div>
+
+<div class="search-bar">
+  <input type="text" id="searchInput" placeholder="Find a place..." />
+  <button onclick="searchAreaLocation()">🔍</button>
+</div>
+<div id="areaSearchResults" class="area-search-results"></div>
+
+<div id="map"></div>
+
+<div class="map-controls">
+  <button onclick="zoomIn()">➕</button>
+  <button onclick="zoomOut()">➖</button>
+  <button onclick="locateMe()">📍</button>
+</div>
+
+<div class="bottom-sheet" id="mapBottomSheet">
+  <div class="sheet-topbar" onclick="toggleMapSheet()">
+    <div class="drag-line"></div>
+    <button class="sheet-toggle-btn" id="sheetToggleBtn" type="button" onclick="event.stopPropagation(); toggleMapSheet()">Minimize Panel</button>
+  </div>
+
+  <div class="sheet-body" id="mapSheetBody">
+    <div class="live-share-card">
+      <div class="toggle-row">
+        <div>
+          <h4>Live Tracking</h4>
+          <p>Updating contacts in real-time</p>
+        </div>
+
+        <label class="switch">
+          <input type="checkbox" id="liveToggle">
+          <span class="slider"></span>
+        </label>
+      </div>
+
+      <button class="primary-btn" onclick="shareCurrentLocation()">📡 Share Live Location</button>
+      <button class="secondary-btn" onclick="safetyCheckIn()">🛡️ Safety Check-in</button>
+
+      <div class="live-share-status">
+        <p id="liveShareStatus">Live sharing is off.</p>
+        <small id="liveShareLink">Your share link will appear here.</small>
+      </div>
+    </div>
+
+    <div class="safety-score-box">
+      <h4>Safety Score</h4>
+      <p id="safetyScore">Calculating...</p>
+      <p id="safetyLabel">Checking your area</p>
+      <small id="mapSafetyNotice">We are analyzing this area's live safety level.</small>
+    </div>
+
+    <div class="route-card">
+      <div class="recent-header compact-header">
+        <h3 data-i18n="map.routeTitle">Safe Route Navigation</h3>
+        <span id="routeDistanceLabel">Waiting</span>
+      </div>
+      <div class="route-search-bar">
+        <input type="text" id="routeSearchInput" placeholder="Search destination for route..." />
+        <button type="button" onclick="searchRouteDestination()">🔍</button>
+      </div>
+      <div id="routeSearchResults" class="route-search-results"></div>
+      <p class="section-desc-left" id="routeDestinationLabel">Search for a destination to preview a safer route.</p>
+      <div class="route-summary-grid">
+        <div class="route-summary-chip">
+          <small data-i18n="map.routeScore">Route score</small>
+          <strong id="routeScoreValue">--/100</strong>
+        </div>
+        <div class="route-summary-chip">
+          <small data-i18n="map.routeStatus">Status</small>
+          <strong id="routeStatusValue">Waiting</strong>
+        </div>
+      </div>
+      <p class="route-note" id="routeSafetyNote">We will show whether the route feels safe, moderate, or risky.</p>
+      <button class="secondary-btn" id="safeRouteBtn" onclick="buildSafeRouteToSearch()" data-i18n="map.routeButton">Generate Safe Route</button>
+    </div>
+
+    <div class="map-legend">
+      <div><span class="legend-dot safe-dot"></span>Safe</div>
+      <div><span class="legend-dot moderate-dot"></span>Moderate</div>
+      <div><span class="legend-dot danger-dot"></span>Danger</div>
+    </div>
+
+    <div class="zone-list-card">
+      <div class="recent-header compact-header">
+        <h3>Nearby Safety Zones</h3>
+        <span id="zoneCountLabel">0 zones</span>
+      </div>
+      <div id="zoneList" class="zone-list">
+        <p class="empty-state">Safety zones will appear here once the map loads.</p>
+      </div>
+    </div>
+
+    <div class="service-bar-card">
+      <div class="recent-header compact-header">
+        <h3>Nearby Services</h3>
+        <span id="servicesCountLabel">0 places</span>
+      </div>
+      <div id="servicesBar" class="services-scroll">
+        <p class="empty-state">Nearby police, hospitals, and pharmacies will appear here.</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="bottom-nav">
+  <div onclick="goToDashboard()">🏠<br>Home</div>
+  <div class="active">🗺️<br>Map</div>
+  <div onclick="goToSOS()">⚠️<br>Alert</div>
+  <div onclick="goToHistory()">📄<br>Reports</div>
+  <div onclick="goToSettings()">⚙️<br>Settings</div>
+</div>
+
+</body>
+</html>

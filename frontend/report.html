@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Report Incident</title>
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
+  <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+  <script defer src="js/main.js"></script>
+</head>
+<body class="report-body">
+
+<div class="map-header app-header">
+  <div class="app-header-left">
+    <span class="app-header-action" onclick="goBack()">&larr;</span>
+    <div class="app-brand"><span class="app-brand-mark" aria-hidden="true"></span><span>PersonalSafety</span></div>
+  </div>
+  <h2 class="app-header-title">Report Incident</h2>
+  <span class="app-header-spacer"></span>
+</div>
+
+<div class="report-container">
+  <div class="info-box">
+    🛡️ Your report is encrypted and secure.
+  </div>
+
+  <label>Incident Type</label>
+  <select class="input">
+    <option>Select the type of incident</option>
+    <option>Theft</option>
+    <option>Harassment</option>
+    <option>Accident</option>
+    <option>Other</option>
+  </select>
+
+  <label>Description</label>
+  <textarea class="input" placeholder="Describe what happened in detail..."></textarea>
+
+  <label>Location</label>
+  <div class="location-input">
+    <span id="reportLocationName">📍 Detecting your current location...</span>
+    <span>GPS</span>
+  </div>
+
+  <div id="reportMap" class="map-preview"></div>
+
+  <div class="row">
+    <div>
+      <label>Date</label>
+      <input type="date" class="input">
+    </div>
+
+    <div>
+      <label>Time</label>
+      <input type="time" class="input">
+    </div>
+  </div>
+
+  <label>Upload Evidence</label>
+  <label class="upload-box" for="evidenceUpload">
+    ⬆️<br>
+    Click to add incident photos<br>
+    <small>Maximum size 6MB each (up to 4 images)</small>
+  </label>
+  <input type="file" id="evidenceUpload" accept="image/*" multiple hidden>
+  <div id="evidencePreview" class="evidence-preview"></div>
+
+  <button class="submit-btn" onclick="submitReport()">
+    Submit Report ➤
+  </button>
+</div>
+
+<div class="bottom-nav">
+  <div onclick="goToDashboard()">🏠<br>Home</div>
+  <div onclick="goToTracking()">🗺️<br>Map</div>
+  <div onclick="goToSOS()">⚠️<br>Alert</div>
+  <div class="active">📄<br>Reports</div>
+  <div onclick="goToSettings()">⚙️<br>Settings</div>
+</div>
+
+</body>
+</html>

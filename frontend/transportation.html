@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Transportation - PersonalSafety</title>
+  <link rel="stylesheet" href="css/style.css">
+  <script defer src="js/main.js"></script>
+</head>
+<body class="transportation-body">
+
+<div class="contacts-header app-header">
+  <div class="app-header-left">
+    <span class="app-header-action" onclick="goBack()">&larr;</span>
+    <div class="app-brand"><span class="app-brand-mark" aria-hidden="true"></span><span>PersonalSafety</span></div>
+  </div>
+  <h2 class="app-header-title">Transportation</h2>
+  <span class="app-header-spacer"></span>
+</div>
+
+<div class="transportation-container">
+  <section class="transport-hero-card">
+    <p class="section-tag">SMART TRAVEL</p>
+    <h2>Safer travel support in one place</h2>
+    <p class="section-desc-left">Enter your destination and quickly open cab or public transit directions with your current location.</p>
+  </section>
+
+  <section class="transport-card">
+    <h3>Plan Your Trip</h3>
+    <label for="transportDestination">Destination</label>
+    <input class="input" id="transportDestination" type="text" placeholder="Where do you want to go?">
+
+    <div class="transport-action-grid">
+      <button class="white-btn" type="button" onclick="loadRideOptions()">Show Ride Options</button>
+      <button class="primary-btn" type="button" onclick="openRideMode('driving')">Open Cab Route</button>
+      <button class="secondary-btn" type="button" onclick="openRideMode('transit')">Open Public Transit</button>
+    </div>
+
+    <button class="white-btn transport-nearby-btn" type="button" onclick="findNearbyTransport()">Find Nearby Taxi / Auto Stands</button>
+    <p class="transport-status" id="transportStatus">Ready to help you travel safely.</p>
+  </section>
+
+  <section class="transport-card">
+    <div class="transport-options-header">
+      <h3>Ride Options</h3>
+      <small id="transportDistanceLabel">Enter destination to view estimates.</small>
+    </div>
+    <div id="transportOptionsList" class="transport-options-list">
+      <p class="empty-state">No options yet. Tap "Show Ride Options".</p>
+    </div>
+  </section>
+
+  <section class="transport-card">
+    <h3>Trip Safety Actions</h3>
+    <div class="transport-action-grid">
+      <button class="primary-btn" type="button" onclick="shareTripPlan()">Share Trip Plan</button>
+      <button class="secondary-btn" type="button" onclick="copyTripDetails()">Copy Trip Details</button>
+    </div>
+
+    <div class="transport-timer-wrap">
+      <label for="tripCheckinDelay">Check-in Reminder</label>
+      <select class="input" id="tripCheckinDelay">
+        <option value="10">10 minutes</option>
+        <option value="20">20 minutes</option>
+        <option value="30" selected>30 minutes</option>
+      </select>
+      <div class="transport-action-grid">
+        <button class="white-btn" type="button" onclick="startTripCheckinTimer()">Start Reminder</button>
+        <button class="white-btn" type="button" onclick="stopTripCheckinTimer()">Stop Reminder</button>
+      </div>
+      <p class="transport-status" id="tripCheckinStatus">No active check-in reminder.</p>
+    </div>
+  </section>
+
+  <section class="transport-card">
+    <h3>Quick Safety Tips</h3>
+    <div class="transport-tip-list">
+      <p>Share your ride details with a trusted contact before starting.</p>
+      <p>Match vehicle number and driver details before boarding.</p>
+      <p>Prefer well-lit pickup points and avoid isolated areas.</p>
+    </div>
+  </section>
+</div>
+
+<div class="bottom-nav">
+  <div onclick="goToDashboard()">🏠<br>Home</div>
+  <div class="active">🗺️<br>Map</div>
+  <div onclick="goToSOS()">⚠️<br>Alert</div>
+  <div onclick="goToHistory()">📄<br>Reports</div>
+  <div onclick="goToSettings()">⚙️<br>Settings</div>
+</div>
+
+</body>
+</html>

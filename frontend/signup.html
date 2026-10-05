@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Signup - PersonalSafety</title>
+  <link rel="stylesheet" href="css/style.css">
+  <script defer src="js/main.js"></script>
+</head>
+
+<body class="login-body">
+
+<div class="login-wrapper">
+  <div class="auth-brand"><span class="app-brand-mark" aria-hidden="true"></span><span>PersonalSafety</span></div>
+
+  <div class="login-card">
+
+    <!-- LOGO -->
+    <div class="signup-logo">
+      🛡️
+    </div>
+
+    <!-- TITLE -->
+    <h2>Create Account</h2>
+    <p class="sub-text">
+      Join our community to stay protected and connected.
+    </p>
+
+    <!-- FULL NAME -->
+    <label>Full Name</label>
+    <div class="input-box">
+      <span>👤</span>
+      <input type="text" id="fullName" placeholder="John Doe">
+    </div>
+
+    <label>Username</label>
+    <div class="input-box">
+      <span>@</span>
+      <input type="text" id="username" placeholder="johndoe" autocomplete="username">
+    </div>
+
+    <!-- EMAIL -->
+    <label>Email Address</label>
+    <div class="input-box">
+      <span>📧</span>
+      <input type="email" id="signupEmail" placeholder="john@example.com">
+    </div>
+
+    <!-- PHONE -->
+    <label>Phone Number</label>
+    <div class="input-box">
+      <span>📞</span>
+      <input type="text" id="phone" placeholder="+91 9876543210">
+    </div>
+
+    <!-- PASSWORD -->
+    <label>Password</label>
+    <div class="input-box">
+      <span>🔒</span>
+      <input type="password" id="signupPassword" placeholder="••••••••" minlength="8" autocomplete="new-password">
+      <button type="button" class="password-toggle-btn" data-toggle-password="signupPassword">Show</button>
+    </div>
+
+    <div class="password-strength" id="signupPasswordStrength">
+      <div class="password-strength-bar">
+        <span class="password-strength-fill"></span>
+      </div>
+      <small class="password-strength-label">Strength: Too weak</small>
+    </div>
+
+    <div class="password-criteria" id="signupPasswordCriteria">
+      <p>Password must include:</p>
+      <ul>
+        <li data-rule="length">At least 8 characters</li>
+        <li data-rule="uppercase">One uppercase letter</li>
+        <li data-rule="lowercase">One lowercase letter</li>
+        <li data-rule="number">One number</li>
+        <li data-rule="special">One special character</li>
+      </ul>
+    </div>
+
+    <!-- CONFIRM PASSWORD -->
+    <label>Confirm Password</label>
+    <div class="input-box">
+      <span>🔁</span>
+      <input type="password" id="confirmPassword" placeholder="••••••••" minlength="8" autocomplete="new-password">
+      <button type="button" class="password-toggle-btn" data-toggle-password="confirmPassword">Show</button>
+    </div>
+
+    <!-- BUTTON -->
+    <button class="login-main-btn" onclick="signupUser()">
+      Register →
+    </button>
+
+    <p class="signup-text">
+      Already have an account?
+      <span onclick="goToLogin()">Sign in</span>
+    </p>
+
+    <!-- FOOT NOTE -->
+    <div class="signup-footer">
+      🔒 END-TO-END ENCRYPTED
+    </div>
+
+  </div>
+
+</div>
+
+</body>
+</html>
